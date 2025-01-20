@@ -12,13 +12,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MONGO_URI = "mongodb+srv://guganclg:Mx4FD6BGybN63JkB@cluster0.5dxve.mongodb.net/test?retryWrites=true&w=majority"
+MONGO_URI = os.getenv("MONGO_URI")
 mongo_client = pymongo.MongoClient(MONGO_URI)
 db = mongo_client["twitter_scraper"]
 collection = db["trending_topics"]
 
-TWITTER_USERNAME = '@hs1067'
-TWITTER_PASSWORD = 'Gugan2004$'
+TWITTER_USERNAME = os.getenv("TWITTER_USERNAME")
+TWITTER_PASSWORD = os.getenv("TWITTER_PASSWORD")
 
 def scrape_twitter():
     chrome_options = Options()
